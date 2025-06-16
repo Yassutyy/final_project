@@ -13,9 +13,6 @@ with open("model_lr.pkl", "rb") as f:
 with open("model_rf.pkl", "rb") as f:
     model_rf = pickle.load(f)
 
-# Load dataset
-df = pd.read_csv("car_data_set.csv")
-
 st.set_page_config(layout="wide")
 
 # Sidebar layout
@@ -35,18 +32,20 @@ if option == "🏠 Home":
     - Predict the **selling price** of a car using:
         - Linear Regression
         - Random Forest Regression
-    
+
     Use the sidebar to navigate ➡️
     """)
 
 # Dataset Viewer
 elif option == "📁 Dataset":
     st.subheader("🔍 Training Dataset")
+    df = pd.read_csv("car_data_set.csv")  # Now loaded only here
     st.dataframe(df)
 
 # Visualizations
 elif option == "📊 Visualizations":
     st.subheader("📊 Data Visualizations")
+    df = pd.read_csv("car_data_set.csv")  # Loaded only here as needed
 
     fig1 = px.histogram(df, x='Selling_Price', nbins=50, title='Selling Price Distribution', marginal="box")
     st.plotly_chart(fig1, use_container_width=True)
@@ -58,6 +57,7 @@ elif option == "📊 Visualizations":
 elif option == "🧠 Predictor":
     st.subheader("⚙️ Choose Prediction Model")
     model_choice = st.radio("Select Model", ["Linear Regression", "Random Forest"])
+    df = pd.read_csv("car_data_set.csv")  # Loaded only here as needed
 
     st.markdown("### 📝 Input Car Details")
     brand = st.selectbox("Select Car Brand", df['Brand'].unique())
