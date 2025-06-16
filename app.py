@@ -14,7 +14,7 @@ with open("model_rf.pkl", "rb") as f:
     model_rf = pickle.load(f)
 
 # Load dataset
-df = pd.read_csv("car_data.csv")
+df = pd.read_csv("car_data_set.csv")
 
 st.set_page_config(layout="wide")
 
