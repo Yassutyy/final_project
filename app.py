@@ -34,7 +34,8 @@ if option == "🏠 Home":
         - Random Forest Regression
 
     Use the sidebar to navigate ➡️
-    """)
+    """
+      st.caption("Developed by B.Yaswanth, A.Dinesh, SK.Baji")         )
 
 # Dataset Viewer
 elif option == "📁 Dataset":
