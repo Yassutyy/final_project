@@ -12,7 +12,7 @@ st.markdown("Predict used car prices based on brand, fuel type, year, and kilome
 # Load dataset
 @st.cache_data
 def load_data():
-    df = pd.read_csv("car_data.csv")
+    df = pd.read_csv("car_data_set.csv")
     df.columns = ['Brand', 'Year', 'Selling_Price', 'KM_Driven', 'Fuel']
     return df
 
